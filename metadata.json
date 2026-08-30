@@ -1,6 +1,7 @@
 {
-  "name": "JUSTICE — Digital Case System",
-  "description": "A secure, end-to-end digital platform that carries every case from FIR filing to final court order — verified, tracked and auditable.",
+  "name": "SIH 26190 — Secure Document Management",
+  "description": "A secure digital document management system for legal and investigation records with role-based access control, SHA-256 integrity verification, complete auditability, and evidentiary traceability.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
+

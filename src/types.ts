@@ -1,38 +1,58 @@
-export type SectionId = 
-  | 'hero' 
-  | 'lifecycle' 
-  | 'roles' 
-  | 'how-it-works' 
-  | 'trust';
+export type SectionId =
+  | 'hero'
+  | 'product'
+  | 'lifecycle'
+  | 'security'
+  | 'pipeline'
+  | 'differentiator'
+  | 'roles'
+  | 'intelligence'
+  | 'trust'
+  | 'sih-alignment'
+  | 'cta';
 
-export type StageId = 'fir' | 'upload' | 'verify' | 'audit' | 'archive';
+export type StageId =
+  | 'case_registration'
+  | 'document_ingestion'
+  | 'verification'
+  | 'controlled_access'
+  | 'review_collaboration'
+  | 'audit'
+  | 'evidence_traceability'
+  | 'archive';
 
 export interface WorkflowStage {
   id: StageId;
   stepNumber: number;
+  stageCode: string;
   title: string;
-  subtitle: string;
-  badge: string;
+  shortSummary: string;
   description: string;
-  actor: string;
+  primaryActor: string;
   actorRole: string;
-  securityGuarantee: string;
-  hashAlgorithm: string;
+  securityMechanism: string;
+  integrityAssurance: string;
   color: string;
-  glowColor: string;
-  actions: string[];
-  sampleRecord: {
-    id: string;
-    title: string;
+  badge: string;
+  keyOutputs: string[];
+  sampleDocket: {
+    docketNumber: string;
+    documentType: string;
     timestamp: string;
-    actor: string;
+    officer: string;
     status: string;
-    payloadHash: string;
-    details: string;
+    sha256Hash: string;
+    description: string;
   };
 }
 
-export type RoleId = 'police' | 'prosecutor' | 'judge' | 'citizen';
+export type RoleId =
+  | 'investigating_officer'
+  | 'forensic_analyst'
+  | 'legal_officer'
+  | 'reviewer'
+  | 'auditor'
+  | 'administrator';
 
 export interface SystemRole {
   id: RoleId;
@@ -40,41 +60,56 @@ export interface SystemRole {
   subtitle: string;
   badge: string;
   clearanceLevel: string;
-  summary: string;
-  responsibilities: string[];
-  permissions: {
-    name: string;
-    allowed: boolean;
-    reason: string;
+  overview: string;
+  primaryResponsibilities: string[];
+  accessPermissions: {
+    action: string;
+    granted: boolean;
+    statutoryRationale: string;
   }[];
-  activeCasesSummary: {
-    total: number;
-    pendingAction: string;
-    slaScore: string;
-  };
+  operationalScope: string;
 }
 
-export interface CaseRecord {
+export interface SecurityPillar {
   id: string;
-  firNumber: string;
-  incidentType: string;
-  policeStation: string;
-  filingDate: string;
-  court: string;
-  presidingJudge: string;
-  status: 'FIR_REGISTERED' | 'EVIDENCE_SEALED' | 'COURT_VERIFIED' | 'UNDER_TRIAL' | 'DISPOSED_ARCHIVED';
-  stage: number;
-  hash: string;
-  documentsCount: number;
-  auditEventsCount: number;
+  title: string;
+  tag: string;
+  summary: string;
+  technicalMechanism: string;
+  evidentiaryValue: string;
+  iconName: string;
+}
+
+export interface DifferentiatorComparison {
+  dimension: string;
+  traditionalDms: string;
+  secureInvestigationDms: string;
+  legalImpact: string;
+}
+
+export interface IntelligentFeature {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  practicalApplication: string;
+  badge: string;
 }
 
 export interface TrustPrinciple {
   id: string;
   title: string;
   metric: string;
-  unit: string;
+  metricLabel: string;
   description: string;
-  standard: string;
-  status: 'VERIFIED' | 'COMPLIANT' | 'CONTINUOUS';
+  statutoryStandard: string;
+  status: 'IMPLEMENTED' | 'STANDARDIZED' | 'CONTINUOUS';
+}
+
+export interface SihChallengeMapping {
+  requirementId: string;
+  challengeTitle: string;
+  sihRequirement: string;
+  platformSolution: string;
+  implementationNote: string;
 }

@@ -2,11 +2,17 @@ import { useState, useEffect } from 'react';
 import { SectionId } from './types';
 import Navbar from './components/Navigation/Navbar';
 import HeroSection from './components/Sections/HeroSection';
-import InteractiveLifecycle from './components/Sections/InteractiveLifecycle';
+import ProductOverviewSection from './components/Sections/ProductOverviewSection';
+import SecurityArchitectureSection from './components/Sections/SecurityArchitectureSection';
+import LifecycleSection from './components/Sections/LifecycleSection';
+import DocumentPipelineSection from './components/Sections/DocumentPipelineSection';
+import DifferentiatorSection from './components/Sections/DifferentiatorSection';
 import RolesSection from './components/Sections/RolesSection';
-import HowItWorksSection from './components/Sections/HowItWorksSection';
-import TrustSection from './components/Sections/TrustSection';
-import AccessModal from './components/Modals/AccessModal';
+import IntelligentProcessingSection from './components/Sections/IntelligentProcessingSection';
+import TrustPrinciplesSection from './components/Sections/TrustPrinciplesSection';
+import SihAlignmentSection from './components/Sections/SihAlignmentSection';
+import CtaSection from './components/Sections/CtaSection';
+import SecureAccessModal from './components/Modals/SecureAccessModal';
 import Footer from './components/Footer';
 import BackgroundShader from './components/ThreeCanvas/BackgroundShader';
 import BackgroundVaultScene from './components/ThreeCanvas/BackgroundVaultScene';
@@ -48,10 +54,16 @@ export default function App() {
   useEffect(() => {
     const sectionIds: SectionId[] = [
       'hero',
+      'product',
+      'security',
       'lifecycle',
+      'pipeline',
+      'differentiator',
       'roles',
-      'how-it-works',
+      'intelligence',
       'trust',
+      'sih-alignment',
+      'cta',
     ];
 
     const handleScroll = () => {
@@ -82,13 +94,13 @@ export default function App() {
           : 'bg-[#F8FAFC] text-slate-900'
       }`}
     >
-      {/* Dynamic Background Shader */}
+      {/* Dynamic Background Atmospheric Shader */}
       <BackgroundShader isDarkMode={isDarkMode} />
 
-      {/* 3D Animated Background Floating Legal Documents on Scroll */}
+      {/* 3D Animated Background Floating Verified Legal Dockets on Scroll */}
       <BackgroundVaultScene isDarkMode={isDarkMode} />
 
-      {/* Main Top Navigation matching Lovable preview */}
+      {/* Top Header Navigation */}
       <Navbar
         activeSection={activeSection}
         onNavigate={handleNavigate}
@@ -97,36 +109,60 @@ export default function App() {
         onOpenAccessModal={() => setIsAccessModalOpen(true)}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Landing Page Content */}
       <main className="relative z-10">
-        {/* Hero Section with "LESS PAPER. MORE JUSTICE." */}
+        {/* 1. Hero Section */}
         <HeroSection
           onNavigate={handleNavigate}
           isDarkMode={isDarkMode}
           onOpenAccessModal={() => setIsAccessModalOpen(true)}
         />
 
-        {/* The 5-Stage Closed Loop System (Register FIR, Upload Documents, Verify & Process, Audit Trail, Archive & Secure) */}
-        <InteractiveLifecycle isDarkMode={isDarkMode} />
+        {/* 2. Product Overview Section & Conceptual Architecture Flow */}
+        <ProductOverviewSection
+          isDarkMode={isDarkMode}
+          onOpenAccessModal={() => setIsAccessModalOpen(true)}
+        />
 
-        {/* Stakeholder Roles (Police, Prosecutors, Judges, Citizens) */}
+        {/* 3. Security Architecture & Interactive Live SHA-256 Verifier */}
+        <SecurityArchitectureSection isDarkMode={isDarkMode} />
+
+        {/* 4. The 8-Stage Investigation & Document Lifecycle */}
+        <LifecycleSection isDarkMode={isDarkMode} />
+
+        {/* 5. Document Security Pipeline Flow */}
+        <DocumentPipelineSection isDarkMode={isDarkMode} />
+
+        {/* 6. Platform Differentiators (Traditional DMS vs. Secure Investigation DMS) */}
+        <DifferentiatorSection isDarkMode={isDarkMode} />
+
+        {/* 7. Stakeholder Roles & Granular Clearance Matrix */}
         <RolesSection
           isDarkMode={isDarkMode}
           onOpenAccessModal={() => setIsAccessModalOpen(true)}
         />
 
-        {/* How It Works & Pipeline Comparison */}
-        <HowItWorksSection isDarkMode={isDarkMode} />
+        {/* 8. Intelligent Document Processing (Assistive Parsing, OCR, Categorization) */}
+        <IntelligentProcessingSection isDarkMode={isDarkMode} />
 
-        {/* Statutory Trust & Real-Time Case Registry */}
-        <TrustSection isDarkMode={isDarkMode} />
+        {/* 9. Statutory Trust Principles & Section 65B IT Act Admissibility */}
+        <TrustPrinciplesSection isDarkMode={isDarkMode} />
+
+        {/* 10. SIH Problem Statement 26190 Challenge Alignment */}
+        <SihAlignmentSection isDarkMode={isDarkMode} />
+
+        {/* 11. Final Call To Action */}
+        <CtaSection
+          isDarkMode={isDarkMode}
+          onOpenAccessModal={() => setIsAccessModalOpen(true)}
+        />
       </main>
 
-      {/* Technical Footer */}
+      {/* Official Footer */}
       <Footer isDarkMode={isDarkMode} onNavigate={handleNavigate} />
 
-      {/* Role Access / Interactive Sandbox Modal */}
-      <AccessModal
+      {/* Secure Access / Authentication Portal Modal */}
+      <SecureAccessModal
         isOpen={isAccessModalOpen}
         onClose={() => setIsAccessModalOpen(false)}
         isDarkMode={isDarkMode}
